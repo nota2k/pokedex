@@ -29,7 +29,10 @@ const props = defineProps({
       <img class="" :src="props.image" :alt="`${props.name} Photo`" />
     </td>
     <td class="px-6 py-4">
-      <span v-for="evolution in props.evolution" :key="evolution">
+      <span v-if="props.evolution.length === 0">
+        Aucune
+      </span>
+      <span v-else v-for="evolution in props.evolution" :key="evolution">
         {{ evolution.name }}
       </span>
     </td>
