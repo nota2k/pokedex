@@ -15,15 +15,20 @@ function getPokemons() {
 </script>
 
 <template>
-  <div class="max-w-[80%] shadow-md sm:rounded-lg m-auto text-gray-900 dark:text-white dark:bg-gray-800">
-    <FilterPokemon @fetch-pokemon="getPokemons"/>
-    <PokemonList :pokemons="pokemons"/>
+  <div class="max-w-[80%]  m-auto">
+    <h1>Pokedex</h1>
+    <FilterPokemon @fetch-pokemon="getPokemons" />
+    <PokemonList :pokemons="pokemons" />
   </div>
 
 </template>
 
 <style scoped>
-  h1 {
-    font-size: 2em;
-  }
+    h1 {
+      font-size: 8em;
+      font-family: "Jacquard 12", system-ui;
+      font-weight: 400;
+      text-align: center;
+      color:var(--color-red-500)
+    }
 </style>

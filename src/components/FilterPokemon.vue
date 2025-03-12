@@ -5,25 +5,44 @@ const emit = defineEmits(['fetch-pokemon'])
 </script>
 
 <template>
-  <h1>Pokedex</h1>
-  <button @click="$emit('fetch-pokemon')">Fetch Pokemon</button>
-
-  <!-- Component Filter -->
-  <div class="filter p-5 text-lg font-semibold text-left rtl:text-right flex gap-5">
-    <input type="text" placeholder="Search for a Pokemon" class="input" />
-    <select id="type"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <div class="filter-wrapper p-5 text-lg font-semibold text-left rtl:text-right flex gap-5 flex-wrap">
+    <button @click="$emit('fetch-pokemon')">Fetch Pokemon</button>
+    <input type="text" placeholder="Rechercher" class="input max-w-[250px]" />
+    <select class="type-select">
       <option selected>Tous</option>
       <option value="poison">Poison</option>
       <option value="plante">Plante</option>
       <option value="eau">Eau</option>
       <option value="feu">Feu</option>
     </select>
+    
   </div>
 </template>
 
 <style scoped>
+
+  .filter-wrapper > *:not(button) {
+    max-width: 250px;
+    width: 100%;
+  }
+
   img{
     max-width: 70px;
   }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid rgba(38, 121, 181, 0.3);
+    font-weight: 400;
+    border-radius: 5px;
+  }
+
+  .type-select {
+    padding: 0.5rem;
+    border: 1px solid rgba(38, 121, 181, 0.3);
+    font-weight: 400;
+    border-radius: 5px;
+  }
+  
 </style>
