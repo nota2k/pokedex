@@ -17,14 +17,14 @@ const props = defineProps({
     </p>
   </div>
   <div v-else="pokemon in props" class="card">
-    <div scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+    <div class="title-wrapper">
       <h1 class="text-center">{{ props.name }}</h1>
     </div>
     <div class="pokemon-img">
       <img class="" :src="props.image" :alt="`${props.name} Photo`" />
     </div>
     <div class="info-wrapper">
-      <h2>Types</h2>
+      <h2>Types&nbsp;:</h2>
       <p>{{props.types.map(type => type.name).join(', ')}}</p>
       <h2>Evolutions&nbsp;: </h2>
       <p v-if="props.evolution.length === 0">
@@ -38,22 +38,36 @@ const props = defineProps({
 </template>
 
 <style scoped>
-  h1{
-    font-size: 1.5em;
-    font-weight: 600;
-  }
-  
-  h2{
-    font-weight: 600;
-    margin-top:10px
-  }
+.title-wrapper {
+  margin: 10px auto 20px auto;
+}
 
-  .pokemon-img{
-    height: 130px;
-  }
+h1 {
+  font-size: 1.5em;
+  font-weight: 600;
+  font-weight: 500;
+}
 
-  .pokemon-img img{
-    height: 100%;
-    margin:0 auto;
-  }
+h2 {
+  font-weight: 600;
+  color: rgb(66, 124, 107);
+}
+
+.info-wrapper {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+}
+
+.pokemon-img {
+  height: 130px;
+}
+
+.pokemon-img img {
+  height: 100%;
+  margin: 0 auto;
+}
 </style>
