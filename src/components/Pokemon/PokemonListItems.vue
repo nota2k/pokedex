@@ -1,37 +1,40 @@
 <script setup>
 import { ref } from 'vue'
-
 const props = defineProps({
   name: String,
-  types: String,
+  types: Array,
   image: String,
-  evolution: String
+  preEvolution: [Object, String],  // Accepte Object ou String
+  evolutions: [Object, String]      // Accepte Object ou String
 })
-
 </script>
 
 <template>
-  <div v-if="!props.name && !props.type && !props.image && !props.evolution">
-    <p colspan="4" class="px-6 py-4 text-center">
+  <div v-if="!props.name && !props.types && !props.image" class="card-empty">
+    <p class="px-6 py-4 text-center">
       Aucun pokémon
     </p>
   </div>
-  <div v-else="pokemon in props" class="card">
+  <div v-else class="card">
     <div class="title-wrapper">
       <h1 class="text-center">{{ props.name }}</h1>
     </div>
     <div class="pokemon-img">
-      <img class="" :src="props.image" :alt="`${props.name} Photo`" />
+      <img :src="props.image" :alt="`${props.name} Photo`" />
     </div>
     <div class="info-wrapper">
       <h2>Types&nbsp;:</h2>
-      <p>{{props.types.map(type => type.name).join(', ')}}</p>
+      <p>{{props.types ? props.types.map(type => type.name).join(', ') : 'Aucun'}}</p>
+      <h2>Pré-Evolution&nbsp;: </h2>
+      <span>{{ props.preEvolution && props.preEvolution.name ? props.preEvolution.name : 'Aucune' }}</span>
       <h2>Evolutions&nbsp;: </h2>
-      <p v-if="props.evolution.length === 0">
+      <span v-if="props.evolutions && props.evolutions.length > 0">
+        <span v-for="evolution in props.evolutions">
+          {{ evolution.name ? evolution.name : 'Aucune' }}
+        </span>
+      </span>
+      <span v-else>
         Aucune
-      </p>
-      <span v-else v-for="evolution in props.evolution" :key="evolution">
-        {{ evolution.name }}
       </span>
     </div>
   </div>

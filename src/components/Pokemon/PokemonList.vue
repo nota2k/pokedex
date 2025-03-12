@@ -6,17 +6,14 @@ const props = defineProps({
   pokemons: {
     type: Array,
     required: true
-  },
-  types: String,
-  image: String,
-  evolution: String
+  }
 })
 </script>
 
 <template>
   <div class="flex flex-wrap justify-between items-center p-5 gap-5">
     <PokemonListItems v-for="pokemon in pokemons" :key="pokemon.id" :name="pokemon.name" :types="pokemon.apiTypes"
-      :image="pokemon.image" :evolution="pokemon.apiEvolutions" />
+      :image="pokemon.image" :evolutions="pokemon.apiEvolutions" :preEvolution="pokemon.apiPreEvolution" />
   </div>
 </template>
 

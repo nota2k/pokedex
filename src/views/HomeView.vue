@@ -1,7 +1,7 @@
 <script setup>
 import PokemonList from "../components/Pokemon/PokemonList.vue";
 import FilterPokemon from "../components/FilterPokemon.vue";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { fetchPokemon } from "../api/pokemon";
 
 const pokemons = ref([]);
