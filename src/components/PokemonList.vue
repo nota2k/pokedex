@@ -28,7 +28,7 @@ const props = defineProps({
     <td class="px-6 py-4">
       <img class="" :src="props.image" :alt="`${props.name} Photo`" />
     </td>
-    <td class="px-6 py-4">
+    <td class="px-6 py-4 max-w-[100px]">
       <span v-if="props.evolution.length === 0">
         Aucune
       </span>
