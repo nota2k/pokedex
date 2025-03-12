@@ -1,9 +1,22 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-red-500: oklch(0.637 0.237 25.331);
+}
 
-@layer base {
+@layer components {
   button:not(:disabled),
   [role="button"]:not(:disabled) {
+    background-color: var(--color-red-500);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: var(--shadow-xl);
+    transition:0.2s ease-in-out all;
     cursor: pointer;
+  }
+
+  button:hover{
+    background-color: var(--color-red-500);
+    filter:brightness(0.8);
   }
 }

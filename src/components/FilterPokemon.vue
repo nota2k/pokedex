@@ -6,7 +6,7 @@ const emit = defineEmits(['fetch-pokemon'])
 
 <template>
   <h1>Pokedex</h1>
-  <button class="fetch-button p-5 bg-red-500 rounded-md" @click="$emit('fetch-pokemon')">Fetch Pokemon</button>
+  <button @click="$emit('fetch-pokemon')">Fetch Pokemon</button>
 
   <!-- Component Filter -->
   <div class="filter p-5 text-lg font-semibold text-left rtl:text-right flex gap-5">
