@@ -11,7 +11,7 @@ function fetchPokemon() {
   <div class="filter-wrapper p-5 text-lg font-semibold text-left rtl:text-right flex gap-5 flex-wrap">
     <button @click="fetchPokemon">Fetch Pokemon</button>
     <input type="text" placeholder="Rechercher" class="input max-w-[250px]" />
-    <select class="type-select">
+    <select  @change="" class="type-select">
       <option selected>Tous</option>
       <option value="poison">Poison</option>
       <option value="plante">Plante</option>
